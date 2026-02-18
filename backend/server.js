@@ -9,6 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // In-memory movie data (could be replaced with a real DB later)
+// Expanded with more genres like Horror, Comedy, etc.
 const movies = [
   {
     id: 1,
@@ -75,6 +76,105 @@ const movies = [
     overview:
       "A photographer begins to notice people disappearing from their old photos—and from real life.",
     tags: ["mind-bending", "mystery", "slow-burn"]
+  },
+  {
+    id: 7,
+    title: "Midnight Laughs",
+    year: 2024,
+    genre: ["Comedy"],
+    rating: 4.2,
+    posterUrl: "",
+    overview:
+      "Three tired roommates decide to watch one terrible horror movie every night—and accidentally become viral critics.",
+    tags: ["funny", "found-footage", "meta"]
+  },
+  {
+    id: 8,
+    title: "Neon Panic",
+    year: 2022,
+    genre: ["Horror", "Thriller"],
+    rating: 4.1,
+    posterUrl: "",
+    overview:
+      "A power outage traps a group of friends inside an old multiplex where the horror movie on screen starts bleeding into reality.",
+    tags: ["horror", "urban-legend", "ensemble"]
+  },
+  {
+    id: 9,
+    title: "Echo Park Nights",
+    year: 2020,
+    genre: ["Comedy", "Romance"],
+    rating: 3.9,
+    posterUrl: "",
+    overview:
+      "Two rival food-truck owners are forced to share a late-night parking spot and accidentally build a following together.",
+    tags: ["feel-good", "funny", "cityscape"]
+  },
+  {
+    id: 10,
+    title: "Static Creek",
+    year: 2019,
+    genre: ["Horror", "Mystery"],
+    rating: 4.0,
+    posterUrl: "",
+    overview:
+      "In a small town where the radio never quite tunes in, a group of teens investigate a broadcast that only plays after midnight.",
+    tags: ["slow-burn", "folk-horror", "teen"]
+  },
+  {
+    id: 11,
+    title: "Soft Reset",
+    year: 2022,
+    genre: ["Sci-Fi", "Thriller"],
+    rating: 4.3,
+    posterUrl: "",
+    overview:
+      "A customer success agent realizes the same callers reset their lives every 24 hours—and she's the only one who remembers.",
+    tags: ["time-loop", "high-concept", "office"]
+  },
+  {
+    id: 12,
+    title: "Sunset Queue",
+    year: 2021,
+    genre: ["Drama"],
+    rating: 3.8,
+    posterUrl: "",
+    overview:
+      "Strangers waiting overnight for a movie premiere share stories that change how they see each other—and their own lives.",
+    tags: ["ensemble", "talky", "character-driven"]
+  },
+  {
+    id: 13,
+    title: "Laugh Track",
+    year: 2023,
+    genre: ["Comedy"],
+    rating: 4.0,
+    posterUrl: "",
+    overview:
+      "A stand-up comic discovers their new special has a mysterious laugh track that reacts to jokes they didn't tell.",
+    tags: ["surreal", "funny", "standup"]
+  },
+  {
+    id: 14,
+    title: "Dark Window",
+    year: 2018,
+    genre: ["Horror"],
+    rating: 3.7,
+    posterUrl: "",
+    overview:
+      "A night security guard in an empty office tower starts seeing people reflected in the windows who aren't really there.",
+    tags: ["minimal", "one-location", "creepy"]
+  },
+  {
+    id: 15,
+    title: "Skyline Loop",
+    year: 2019,
+    genre: ["Sci-Fi", "Action"],
+    rating: 4.1,
+    posterUrl: "",
+    overview:
+      "A bike courier stuck in a time loop must deliver one package perfectly to break out of the reset.",
+    tags: ["high-energy", "time-loop", "chase"]
   }
 ];
 
