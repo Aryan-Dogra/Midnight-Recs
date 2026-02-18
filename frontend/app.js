@@ -8,6 +8,8 @@ const state = {
     minRating: 3.5
   }
 };
+const API_BASE = "https://midnight-recs-backend.onrender.com";
+
 
 const elements = {};
 
@@ -36,9 +38,10 @@ async function fetchJSON(url, options) {
 
 async function loadInitialData() {
   const [genres, movies, recommended] = await Promise.all([
-    fetchJSON("/api/genres"),
-    fetchJSON("/api/movies"),
-    fetchJSON("/api/recommendations?limit=4")
+    fetchJSON(`${API_BASE}/api/genres`),
+    fetchJSON(`${API_BASE}/api/movies`),
+    fetchJSON(`${API_BASE}/api/recommendations?limit=4`)
+
   ]);
 
   state.genres = genres;
@@ -132,7 +135,7 @@ async function applyFilters() {
     params.set("minRating", String(state.filters.minRating));
   }
 
-  const list = await fetchJSON(`/api/movies?${params.toString()}`);
+  const list = await fetchJSON(`${API_BASE}/api/movies?${params.toString()}`);
   state.movies = list;
   renderMovies(list, elements.moviesGrid);
   updateResultsMeta(list);
@@ -144,14 +147,14 @@ async function loadRecommendations(opts = {}) {
   if (state.filters.genre) params.set("genre", state.filters.genre);
   params.set("limit", "4");
 
-  const recs = await fetchJSON(`/api/recommendations?${params.toString()}`);
+  const recs = await fetchJSON(`${API_BASE}/api/recommendations?${params.toString()}`);
   state.recommended = recs;
   renderMovies(recs, elements.recommendedGrid);
 }
 
 async function rateMovie(id, rating) {
   try {
-    const updated = await fetchJSON("/api/rate", {
+    const updated = await fetchJSON(`${API_BASE}/api/rate`, {
       method: "POST",
       body: JSON.stringify({ id, rating })
     });
