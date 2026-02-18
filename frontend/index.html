@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Midnight Recs – Movie Recommendations</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <h1>Midnight Recs</h1>
+            <p>Minimal movie recommendations for late nights.</p>
+          </div>
+        </div>
+        <div class="search-panel">
+          <div class="field-group">
+            <label for="search">Search</label>
+            <input
+              id="search"
+              type="text"
+              placeholder="Title, mood, or tag…"
+              autocomplete="off"
+            />
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label for="genre">Genre</label>
+              <select id="genre">
+                <option value="">Any</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <div class="field-label-row">
+                <label for="minRating">Min rating</label>
+                <span id="minRatingValue">3.5</span>
+              </div>
+              <input
+                id="minRating"
+                type="range"
+                min="0"
+                max="5"
+                step="0.5"
+                value="3.5"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Recommended tonight</h2>
+            <button id="shuffleBtn" class="ghost-button">Shuffle</button>
+          </div>
+          <div id="recommendedGrid" class="card-grid"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>All matches</h2>
+            <p id="resultsMeta" class="meta-text"></p>
+          </div>
+          <div id="moviesGrid" class="card-grid"></div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>Built With Love</span>
+      </footer>
+    </div>
+
+    <template id="movieCardTemplate">
+      <article class="movie-card">
+        <div class="movie-meta">
+          <div class="title-row">
+            <h3 class="movie-title"></h3>
+            <span class="movie-year"></span>
+          </div>
+          <div class="pill-row">
+            <span class="pill pill-rating"></span>
+            <span class="pill pill-genres"></span>
+          </div>
+        </div>
+        <p class="movie-overview"></p>
+        <div class="tags-row"></div>
+        <div class="actions-row">
+          <div class="rating-actions">
+            <span class="rate-label">Rate:</span>
+            <button data-rate="3">3★</button>
+            <button data-rate="4">4★</button>
+            <button data-rate="5">5★</button>
+          </div>
+          <button class="ghost-button small recommend-like">
+            More like this
+          </button>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+  </html>
+
